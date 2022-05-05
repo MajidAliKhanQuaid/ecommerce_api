@@ -31,7 +31,7 @@ string connectionString = builder.Configuration.GetConnectionString("Default");
 //string issuer = builder.Configuration.GetValue<string>("JwtSettings:JwtIssuer");
 
 // registering handlers for authorization policies
-builder.Services.AddSingleton<IAuthorizationHandler, MinimumAgeHandler>();
+//builder.Services.AddSingleton<IAuthorizationHandler, MinimumAgeHandler>();
 builder.Services.AddSingleton<IAuthorizationHandler, CanViewCategoriesHandler>();
 builder.Services.AddSingleton<IAuthorizationHandler, CanViewOrdersHandler>();
 builder.Services.AddSingleton<IAuthorizationHandler, CanViewProductsHandler>();
@@ -126,7 +126,7 @@ builder.Services.AddAuthentication(options =>
 
 builder.Services.AddAuthorization(options =>
 {
-    options.AddPolicy("Atleast21", policy => policy.Requirements.Add(new MinimumAgeRequirement(21)));
+    //options.AddPolicy("Atleast21", policy => policy.Requirements.Add(new MinimumAgeRequirement(21)));
 
     /*
      * 
