@@ -356,7 +356,12 @@ var app = builder.Build();
 if (app.Environment.IsDevelopment())
 {
     app.UseSwagger();
-    app.UseSwaggerUI();
+    app.UseSwaggerUI(c =>
+    {
+        c.SwaggerEndpoint("/swagger/v1/swagger.json", "Insta Cart");
+        // to enable it to run on '/' route rather than '/swagger/index.html'
+        c.RoutePrefix = String.Empty;
+    });
 }
 
 /*

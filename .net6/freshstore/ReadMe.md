@@ -1,12 +1,25 @@
 ### Commands
 
 ```ps
+-- add user permission before running
+
+INSERT INTO UserPermissions (UsersId, PermissionsId)
+SELECT Users.Id, UserLevelPermissions.Id 
+FROM Users, UserLevelPermissions
+```
+
+```ps
+-- for installing .net cli (if not installed already)
+dotnet tool install --global dotnet-ef
+```
+
+```ps
 
 dotnet ef migrations add initial --project ..\freshstore.bll
 
 dotnet ef migrations remove --project ..\freshstore.bll
 
-dotnet ef database update
+dotnet ef database update --project ..\freshstore.bll
 
 # undo all migrations
 dotnet ef database update 0
